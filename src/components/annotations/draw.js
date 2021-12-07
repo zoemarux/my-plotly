@@ -285,7 +285,7 @@ function drawOne(gd, index, opt, value) {
         borderfull = borderwidth + borderpad;
 
     // trello202: ツールチップ色を透過グレーに変更
-    var COLOR_HEX_GRAY = '#ffffff';
+    var COLOR_HEX_GRAY = '';
     var COLOR_RGB_BLACK = '#000000';
     var BG_FILL_OPACITY = 0.6;
 
