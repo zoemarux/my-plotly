@@ -329,7 +329,7 @@ Plotly.plot = function(gd, data, layout, config) {
     function finalDraw() {
         Registry.getComponentMethod('shapes', 'draw')(gd);
         Registry.getComponentMethod('images', 'draw')(gd);
-        Registry.getComponentMethod('annotations', 'draw')(gd);
+        Registry.getComponentMethod('annotations', 'draw')(gd,data);
         Registry.getComponentMethod('legend', 'draw')(gd);
         Registry.getComponentMethod('rangeslider', 'draw')(gd);
         Registry.getComponentMethod('rangeselector', 'draw')(gd);

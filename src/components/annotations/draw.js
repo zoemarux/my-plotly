@@ -41,16 +41,26 @@ module.exports = {
     drawOne: drawOne
 };
 
-function draw(gd) {
-    var fullLayout = gd._fullLayout;
+function draw(gd ,data) {
+    console.log(data)
 
-    fullLayout._infolayer.selectAll('.annotation').remove();
+    var fullLayout = gd._fullLayout;
 
     for(var i = 0; i < fullLayout.annotations.length; i++) {
         if(fullLayout.annotations[i].visible) {
             drawOne(gd, i);
         }
     }
+
+    try {
+        if(data.isCancerChart) {
+            fullLayout._infolayer.selectAll('.annotation').selectAll('.bg').remove()
+        }
+      } catch (error) {
+        console.error(error);
+        // expected output: ReferenceError: nonExistentFunction is not defined
+        // Note - error messages will vary depending on browser
+      }
 
     return Plots.previousPromises(gd);
 }
@@ -285,7 +295,7 @@ function drawOne(gd, index, opt, value) {
         borderfull = borderwidth + borderpad;
 
     // trello202: ツールチップ色を透過グレーに変更
-    var COLOR_HEX_GRAY = '';
+    var COLOR_HEX_GRAY = '#d3d3d3';
     var COLOR_RGB_BLACK = '#000000';
     var BG_FILL_OPACITY = 0.6;
 
